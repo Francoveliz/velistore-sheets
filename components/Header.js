@@ -2,31 +2,38 @@ import React from "react";
 import {
 	Box,
 	Text,
-	Stack,
+	VStack,
 	Image,
 	HStack,
 	IconButton,
 	Grid,
+	Icon,
 	GridItem,
 } from "@chakra-ui/react";
 
 import { FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { GoLocation } from "react-icons/go";
 
 const Header = () => {
 	return (
-		<Box>
-			<Box h={64} overflow="hidden" borderBottomRadius="lg">
+		<VStack spacing={0} mb={10}>
+			<Box
+				mx={{ base: -4, md: 0 }}
+				h={32}
+				overflow="hidden"
+				borderBottomRadius={{ base: "", md: "lg" }}>
 				<Image
 					src="https://img.pystatic.com/chains/ar/grido-background-7ffb7294-859b-41e6-a7ad-e131ab03cb67.jpg?quality=90&width=414"
 					alt="helados"
 				/>
 			</Box>
-			<Grid templateRows="1fr, 1fr" templateColumns="1fr, 1fr" gap={4}>
-				<GridItem colSpan={1} rowSpan={1}>
+			<Grid
+				templateColumns={{ md: "repeat(3, 1fr)", base: "repeat(2,1fr)" }}
+				templateRows={{ md: "1fr", base: "6rem 1fr" }}>
+				<GridItem>
 					<Box
-						w={36}
-						h={36}
-						ms={6}
+						w={28}
+						h={28}
 						borderRadius="full"
 						boxShadow="md"
 						display="flex"
@@ -44,8 +51,8 @@ const Header = () => {
 					</Box>
 				</GridItem>
 
-				<GridItem colSpan={1} rowSpan={1}>
-					<HStack>
+				<GridItem colStart={{ md: 3 }} rowStart={{ md: 1 }}>
+					<HStack justifyContent="flex-end" pt={4}>
 						<IconButton
 							colorScheme="orange"
 							aria-label="whatsapp"
@@ -69,18 +76,23 @@ const Header = () => {
 						/>
 					</HStack>
 				</GridItem>
-				<GridItem colSpan={2} rowSpan={1}>
+				<GridItem colSpan={{ base: 2, md: 1 }} colStart={{ md: 2 }}>
 					<Box>
-						<Text fontSize="5xl">Grido</Text>
-						<Text>Aquí puedes colocar la descripción de tu comercio.</Text>
-						<Text>
-							Av. Calchaquí 6435, B1888 Florencio Varela, Provincia de
-							Buenos Aires
+						<Text fontSize="2xl" fontWeight="bold">
+							Grido
+						</Text>
+						<Text mb={4}>
+							Aquí puedes colocar la descripción de tu comercio.
+						</Text>
+						<Text color="orange" fontWeight="semibold" display="flex">
+							<Icon as={GoLocation} fontSize="1.3rem" mr={1} /> Av.
+							Calchaquí 6435, B1888 Florencio Varela, Provincia de Buenos
+							Aires
 						</Text>
 					</Box>
 				</GridItem>
 			</Grid>
-		</Box>
+		</VStack>
 	);
 };
 

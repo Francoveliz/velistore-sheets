@@ -20,7 +20,7 @@ const ProductsList = () => {
 
 	return (
 		<div>
-			<SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={8}>
+			<SimpleGrid columns={{ base: 1, lg: 2 }}>
 				{products.map(product => (
 					<ProductCard key={product.id} {...product} />
 				))}
