@@ -77,7 +77,7 @@ const ProductDrawer = ({
 					</DrawerBody>
 
 					<DrawerFooter>
-						<Button colorScheme="blue" isFullWidth>
+						<Button colorScheme="orange" isFullWidth>
 							{`Agregar ${amount} item`}
 						</Button>
 					</DrawerFooter>
