@@ -20,7 +20,7 @@ import {
 import { useSelector } from "react-redux";
 import { selectProductsInCart } from "../redux/slices/cartSlice";
 import CartItem from "./CartItem";
-import OrderDrawer from "./OrderDrawer";
+import OrderDrawer from "./order-drawer/OrderDrawer";
 import SummaryDrawer from "./SummaryDrawer";
 
 const CartDrawer = ({ isOpen, onOpen, onClose, btnRef }) => {

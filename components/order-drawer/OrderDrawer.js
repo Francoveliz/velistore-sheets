@@ -16,11 +16,15 @@ import {
 	Radio,
 	Divider,
 	IconButton,
+	Icon,
+	Box,
 } from "@chakra-ui/react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { selectProductsInCart } from "../redux/slices/cartSlice";
+import { selectProductsInCart } from "../../redux/slices/cartSlice";
 import { AiOutlineWhatsApp } from "react-icons/ai";
+import { validationSchema } from "./validationSchema";
+import { BiErrorCircle } from "react-icons/bi";
 
 const OrderDrawer = ({ setStep }) => {
 	const productsInCart = useSelector(selectProductsInCart);
@@ -64,9 +68,21 @@ const OrderDrawer = ({ setStep }) => {
 		console.log(values);
 	};
 
+	const handleInputError = (input, formik) => {
+		if (formik.touched[input] && formik.errors[input]) {
+			return (
+				<HStack color="red">
+					<Icon as={BiErrorCircle} />
+					<Text>{formik.errors[input]}</Text>
+				</HStack>
+			);
+		}
+		return null;
+	};
+
 	const formik = useFormik({
 		initialValues,
-		// validationSchema: validationSchema,
+		validationSchema,
 		onSubmit: values => handleSubmit(values),
 	});
 
@@ -96,6 +112,7 @@ const OrderDrawer = ({ setStep }) => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 						/>
+						{handleInputError("nombre", formik)}
 					</FormControl>
 					{/* metodoDePago field */}
 					<FormControl>
@@ -133,6 +150,7 @@ const OrderDrawer = ({ setStep }) => {
 								</Radio>
 								<Divider />
 							</VStack>
+							{handleInputError("metodoDePago", formik)}
 						</RadioGroup>
 					</FormControl>
 					{/* domicilio  field */}
@@ -145,6 +163,7 @@ const OrderDrawer = ({ setStep }) => {
 							onChange={formik.handleChange}
 							onBlur={formik.handleBlur}
 						/>
+						{handleInputError("domicilio", formik)}
 					</FormControl>
 				</VStack>
 			</DrawerBody>
