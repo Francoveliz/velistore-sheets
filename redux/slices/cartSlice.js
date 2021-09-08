@@ -51,7 +51,7 @@ export const {
 	addProduct,
 	incrementProductQuantity,
 	decrementProductQuantity,
-	increaseProductQuantityByAmount,
+	incrementProductQuantityByAmount,
 	removeProduct,
 } = cartSlice.actions;
 
