@@ -29,7 +29,7 @@ export const cartSlice = createSlice({
 				return product;
 			});
 		},
-		increaseProductQuantityByAmount: (state, { payload }) => {
+		incrementProductQuantityByAmount: (state, { payload }) => {
 			state.products = state.products.map(product => {
 				if (product.id === payload.id) {
 					product.quantity += payload.quantity;
