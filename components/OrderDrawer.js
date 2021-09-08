@@ -20,6 +20,7 @@ import {
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { selectProductsInCart } from "../redux/slices/cartSlice";
+import { AiOutlineWhatsApp } from "react-icons/ai";
 
 const OrderDrawer = ({ setStep }) => {
 	const productsInCart = useSelector(selectProductsInCart);
@@ -39,18 +40,19 @@ const OrderDrawer = ({ setStep }) => {
 
 	const handleSubmit = values => {
 		const { nombre, metodoDePago, domicilio } = values;
+
 		const productsText = productsInCart.reduce((accumulator, product) => {
 			return accumulator.concat(
 				"",
-				`- [${product.quantity}]* ${product.titulo} > *$${
+				`- *[ ${product.quantity} ]* ${product.titulo} > *$${
 					product.quantity * product.precio
-				} \n`
+				}* \n`
 			);
 		}, "");
 
 		const textToSend = productsText.concat(
 			"",
-			`\n Total: $${totalAmount()} \n\n Nombre: ${nombre} \n Metodo de pago: ${metodoDePago} \n Domicilio: ${domicilio}`
+			`\n *Total: $${totalAmount()}* \n\n Nombre: *${nombre}* \n Metodo de pago: *${metodoDePago}* \n Domicilio: *${domicilio}*`
 		);
 		console.log({ textToSend });
 		window.open(
@@ -150,7 +152,7 @@ const OrderDrawer = ({ setStep }) => {
 			<DrawerFooter>
 				<VStack spacing={4} w="full">
 					<Button
-						as="a"
+						leftIcon={<AiOutlineWhatsApp fontSize="1.5rem" />}
 						onClick={formik.handleSubmit}
 						colorScheme="green"
 						isFullWidth>

@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { Button, useDisclosure } from "@chakra-ui/react";
+import { Button, useDisclosure, Badge, Box } from "@chakra-ui/react";
 import CartDrawer from "./CartDrawer";
 import { useSelector } from "react-redux";
 import { selectProductsInCart } from "../redux/slices/cartSlice";
+import { FiShoppingCart } from "react-icons/fi";
 
 const CartButton = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,14 +27,38 @@ const CartButton = () => {
 		<>
 			{Boolean(productsInCart.length) && (
 				<>
-					<Button
-						onClick={onOpen}
-						colorScheme="orange"
+					<Box
 						position="sticky"
 						bottom="1rem"
-						isFullWidth>
-						{`Carrito ${totalQuantity} items $${totalAmount()}`}
-					</Button>
+						left="50%"
+						borderRadius="full"
+						onClick={onOpen}
+						transform="translateX(-50%)"
+						h={14}
+						w={14}
+						bg="orange"
+						display="flex"
+						justifyContent="center"
+						alignItems="center">
+						<Box>
+							<FiShoppingCart color="white" fontSize="1.5rem" />
+						</Box>
+						<Badge
+							position="absolute"
+							top={0}
+							right={0}
+							w={5}
+							h={5}
+							p={0}
+							rounded="full"
+							display="flex"
+							justifyContent="center"
+							alignItems="center"
+							colorScheme="orange">{`${totalQuantity}`}</Badge>
+					</Box>
+
+					{/* {`Tu pedido ${totalQuantity} items $${totalAmount()}`} */}
+
 					<CartDrawer
 						isOpen={isOpen}
 						onClose={onClose}
