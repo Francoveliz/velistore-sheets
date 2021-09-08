@@ -16,8 +16,6 @@ const ProductsList = () => {
 		initialFunction();
 	}, []);
 
-	console.log(products);
-
 	return (
 		<div>
 			<SimpleGrid columns={{ base: 1, lg: 2 }}>

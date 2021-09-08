@@ -17,6 +17,15 @@ import {
 	Stack,
 } from "@chakra-ui/react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import {
+	incrementProductQuantityByAmount,
+	addProduct,
+	selectProductsInCart,
+	incrementProductQuantity,
+} from "../redux/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import IncrementButton from "./IncrementButton";
+import DecrementButton from "./DecrementButton";
 
 const ProductDrawer = ({
 	imagen,
@@ -25,17 +34,34 @@ const ProductDrawer = ({
 	isOpen,
 	onOpen,
 	onClose,
+	id,
 	btnRef,
+	precio,
 }) => {
-	const [amount, setAmount] = useState(1);
+	const dispatch = useDispatch();
+	const [quantity, setQuantity] = useState(1);
+	const productsInCart = useSelector(selectProductsInCart);
 
-	const decreaseAmount = () => amount > 1 && setAmount(amount - 1);
+	const decreaseQuantity = () => quantity > 1 && setQuantity(quantity - 1);
 
-	const increaseAmount = () => setAmount(amount + 1);
+	const increaseQuantity = () => setQuantity(quantity + 1);
+
+	const handleAddProduct = () => {
+		const productExistInCart = Boolean(
+			productsInCart.find(product => product.id === id)
+		);
+		if (productExistInCart) {
+			dispatch(incrementProductQuantityByAmount({ id, quantity }));
+		} else {
+			dispatch(addProduct({ titulo, precio, id, quantity }));
+		}
+		onClose();
+	};
 
 	return (
 		<div>
 			<Drawer
+				size="lg"
 				isOpen={isOpen}
 				placement="right"
 				onClose={onClose}
@@ -57,28 +83,19 @@ const ProductDrawer = ({
 						<HStack justifyContent="space-between">
 							<Text>Cantidad</Text>
 							<HStack>
-								<IconButton
-									onClick={decreaseAmount}
-									isRound
-									size="sm"
-									aria-label="restar"
-									icon={<AiOutlineMinus />}
-								/>
-								<Text>{amount}</Text>
-								<IconButton
-									onClick={increaseAmount}
-									isRound
-									size="sm"
-									aria-label="sumar"
-									icon={<AiOutlinePlus />}
-								/>
+								<DecrementButton onClick={decreaseQuantity} />
+								<Text>{quantity}</Text>
+								<IncrementButton onClick={increaseQuantity} />
 							</HStack>
 						</HStack>
 					</DrawerBody>
 
 					<DrawerFooter>
-						<Button colorScheme="orange" isFullWidth>
-							{`Agregar ${amount} item`}
+						<Button
+							onClick={handleAddProduct}
+							colorScheme="orange"
+							isFullWidth>
+							{`Agregar ${quantity} item`}
 						</Button>
 					</DrawerFooter>
 				</DrawerContent>

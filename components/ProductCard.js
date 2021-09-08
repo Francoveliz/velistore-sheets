@@ -10,7 +10,7 @@ import {
 import React from "react";
 import ProductDrawer from "./ProductDrawer";
 
-const ProductCard = ({ imagen, titulo, precio, descripcion }) => {
+const ProductCard = ({ imagen, titulo, precio, descripcion, id }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
 	return (
@@ -56,6 +56,8 @@ const ProductCard = ({ imagen, titulo, precio, descripcion }) => {
 				titulo={titulo}
 				descripcion={descripcion}
 				btnRef={btnRef}
+				precio={precio}
+				id={id}
 			/>
 		</>
 	);
