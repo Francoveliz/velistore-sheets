@@ -39,6 +39,7 @@ const CartButton = () => {
 						bg="orange"
 						display="flex"
 						justifyContent="center"
+						boxShadow="lg"
 						alignItems="center">
 						<Box>
 							<FiShoppingCart color="white" fontSize="1.5rem" />
@@ -54,6 +55,7 @@ const CartButton = () => {
 							display="flex"
 							justifyContent="center"
 							alignItems="center"
+							boxShadow="md"
 							colorScheme="orange">{`${totalQuantity}`}</Badge>
 					</Box>
 
