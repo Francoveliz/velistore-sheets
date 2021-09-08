@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
 	Image,
 	Text,
@@ -20,8 +20,11 @@ import {
 import { useSelector } from "react-redux";
 import { selectProductsInCart } from "../redux/slices/cartSlice";
 import CartItem from "./CartItem";
+import OrderDrawer from "./OrderDrawer";
+import SummaryDrawer from "./SummaryDrawer";
 
 const CartDrawer = ({ isOpen, onOpen, onClose, btnRef }) => {
+	const [step, setStep] = useState("summary");
 	const productsInCart = useSelector(selectProductsInCart);
 
 	const totalAmount = () =>
@@ -41,7 +44,7 @@ const CartDrawer = ({ isOpen, onOpen, onClose, btnRef }) => {
 				finalFocusRef={btnRef}>
 				<DrawerOverlay />
 				<DrawerContent>
-					<DrawerCloseButton />
+					{/* <DrawerCloseButton />
 					<DrawerHeader borderBottomWidth="1px">Carrito</DrawerHeader>
 					<DrawerBody>
 						{productsInCart.map(product => (
@@ -59,11 +62,16 @@ const CartDrawer = ({ isOpen, onOpen, onClose, btnRef }) => {
 									{`$${totalAmount()}`}
 								</Text>
 							</HStack>
-							<Button colorScheme="orange" isFullWidth>
+							<Button
+								onClick={() => setStep("form")}
+								colorScheme="orange"
+								isFullWidth>
 								Siguiente
 							</Button>
 						</VStack>
-					</DrawerFooter>
+					</DrawerFooter> */}
+					{step === "summary" && <SummaryDrawer setStep={setStep} />}
+					{step === "form" && <OrderDrawer setStep={setStep} />}
 				</DrawerContent>
 			</Drawer>
 		</div>
