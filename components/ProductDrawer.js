@@ -83,7 +83,10 @@ const ProductDrawer = ({
 						<HStack justifyContent="space-between">
 							<Text>Cantidad</Text>
 							<HStack>
-								<DecrementButton onClick={decreaseQuantity} />
+								<DecrementButton
+									onClick={decreaseQuantity}
+									isDisabled={quantity === 1}
+								/>
 								<Text>{quantity}</Text>
 								<IncrementButton onClick={increaseQuantity} />
 							</HStack>
@@ -95,7 +98,9 @@ const ProductDrawer = ({
 							onClick={handleAddProduct}
 							colorScheme="orange"
 							isFullWidth>
-							{`Agregar ${quantity} item`}
+							{`Agregar ${quantity} ${
+								quantity === 1 ? "producto" : "productos"
+							}`}
 						</Button>
 					</DrawerFooter>
 				</DrawerContent>

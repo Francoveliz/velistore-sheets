@@ -48,9 +48,9 @@ const OrderDrawer = ({ setStep }) => {
 		const productsText = productsInCart.reduce((accumulator, product) => {
 			return accumulator.concat(
 				"",
-				`- *[ ${product.quantity} ]* ${product.titulo} > *$${
-					product.quantity * product.precio
-				}* \n`
+				`- ${product.quantity === 1 ? "" : `*[ ${product.quantity} ]*`} ${
+					product.titulo
+				} > *$${product.quantity * product.precio}* \n`
 			);
 		}, "");
 
