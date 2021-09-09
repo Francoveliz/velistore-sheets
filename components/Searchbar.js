@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { setSearchText } from "../redux/slices/searchSlice";
 
-const Searchbar = () => {
+const Searchbar = ({ ...rest }) => {
 	const [text, setText] = useState("");
 	const dispatch = useDispatch();
 
@@ -14,25 +14,24 @@ const Searchbar = () => {
 	};
 
 	return (
-		<>
-			<HStack>
-				<Box
-					bg="orange"
-					h={10}
-					w={12}
-					borderRadius="md"
-					display="flex"
-					justifyContent="center"
-					alignItems="center">
-					<Icon as={AiOutlineSearch} color="white" />
-				</Box>
-				<Input
-					type="text"
-					value={text}
-					onChange={e => handleOnChange(e)}
-				/>
-			</HStack>
-		</>
+		<HStack {...rest} spacing={0}>
+			<Box
+				bg="orange"
+				h={10}
+				w={12}
+				borderRadius="md"
+				display="flex"
+				justifyContent="center"
+				alignItems="center">
+				<Icon as={AiOutlineSearch} color="white" />
+			</Box>
+			<Input
+				placeholder="buscar..."
+				type="text"
+				value={text}
+				onChange={e => handleOnChange(e)}
+			/>
+		</HStack>
 	);
 };
 
