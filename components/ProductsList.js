@@ -3,19 +3,25 @@ import { SimpleGrid } from "@chakra-ui/layout";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import { getProducts } from "../utils/getProducts";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "../redux/slices/dataSlice";
 
 const ProductsList = () => {
-	const [products, setProducts] = useState([]);
+	const dispatch = useDispatch();
+	const products = useSelector(state => state.data.products);
+	const category = useSelector(state => state.search.category);
+
 	const searchText = useSelector(state => state.search.text);
 
-	const filterProducts = products.filter(product =>
-		product.titulo.toLowerCase().includes(searchText.toLowerCase())
+	const filterProducts = products.filter(
+		product =>
+			product.titulo.toLowerCase().includes(searchText.toLowerCase()) &&
+			product.categoria.includes(category)
 	);
 
 	const initialFunction = async () => {
 		const initialProducts = await getProducts();
-		setProducts(initialProducts);
+		dispatch(setProducts(initialProducts));
 	};
 
 	useEffect(() => {
