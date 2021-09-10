@@ -16,7 +16,7 @@ import { GoLocation } from "react-icons/go";
 
 const Header = () => {
 	return (
-		<VStack spacing={0} mb={10}>
+		<VStack spacing={0}>
 			<Box
 				mx={{ base: -4, md: 0 }}
 				h={32}
@@ -58,21 +58,21 @@ const Header = () => {
 							aria-label="whatsapp"
 							icon={<FaWhatsapp />}
 							isRound
-							fontSize="25px"
+							fontSize="1.2rem"
 						/>
 						<IconButton
 							colorScheme="orange"
 							aria-label="instagram"
 							icon={<FaInstagram />}
 							isRound
-							fontSize="25px"
+							fontSize="1.2rem"
 						/>
 						<IconButton
 							colorScheme="orange"
 							aria-label="instagram"
 							icon={<FaFacebookF />}
 							isRound
-							fontSize="23px"
+							fontSize="1.2rem"
 						/>
 					</HStack>
 				</GridItem>

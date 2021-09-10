@@ -32,10 +32,12 @@ const SummaryDrawer = ({ setStep }) => {
 
 	return (
 		<>
-			<Box h={10}>
+			<Box>
 				<DrawerCloseButton />
 			</Box>
-			<DrawerHeader borderBottomWidth="1px">Carrito</DrawerHeader>
+			<DrawerHeader mt={6} borderBottomWidth="1px">
+				Carrito
+			</DrawerHeader>
 			<DrawerBody>
 				{productsInCart.map(product => (
 					<CartItem key={product.id} {...product} />

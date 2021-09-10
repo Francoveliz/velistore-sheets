@@ -21,7 +21,6 @@ const Categories = ({ ...rest }) => {
 		dispatch(setCategory(e.target.value));
 	};
 
-	console.log(value);
 	return (
 		<Select
 			{...rest}

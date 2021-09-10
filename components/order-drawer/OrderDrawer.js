@@ -87,17 +87,19 @@ const OrderDrawer = ({ setStep }) => {
 	});
 
 	return (
-		<>
-			<HStack>
-				<IconButton
-					variant="ghost"
-					onClick={() => setStep("summary")}
-					aria-label="atras"
-					icon={<AiOutlineArrowLeft />}
-				/>
-				<DrawerCloseButton />
-			</HStack>
-			<DrawerHeader borderBottomWidth="1px">
+		<Box position="relative">
+			<IconButton
+				variant="ghost"
+				onClick={() => setStep("summary")}
+				aria-label="atras"
+				position="absolute"
+				fontSize="1.2rem"
+				top="5px"
+				icon={<AiOutlineArrowLeft />}
+			/>
+
+			<DrawerCloseButton />
+			<DrawerHeader mt={6} borderBottomWidth="1px">
 				Completa tu pedido
 			</DrawerHeader>
 			<DrawerBody>
@@ -128,7 +130,7 @@ const OrderDrawer = ({ setStep }) => {
 									size="lg"
 									colorScheme="orange"
 									value="efectivo">
-									efectivo
+									Efectivo
 								</Radio>
 								<Divider />
 								<Radio
@@ -137,7 +139,7 @@ const OrderDrawer = ({ setStep }) => {
 									size="lg"
 									colorScheme="orange"
 									value="transferencia bancaria">
-									transferencia bancaria
+									Transferencia bancaria
 								</Radio>
 								<Divider />
 								<Radio
@@ -146,7 +148,7 @@ const OrderDrawer = ({ setStep }) => {
 									size="lg"
 									colorScheme="orange"
 									value="mercado pago">
-									mercado pago
+									Mercado pago
 								</Radio>
 								<Divider />
 							</VStack>
@@ -179,7 +181,7 @@ const OrderDrawer = ({ setStep }) => {
 					</Button>
 				</VStack>
 			</DrawerFooter>
-		</>
+		</Box>
 	);
 };
 
