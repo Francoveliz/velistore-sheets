@@ -1,4 +1,4 @@
-import { Container, Divider, VStack } from "@chakra-ui/react";
+import { Container, Divider, VStack, Stack } from "@chakra-ui/react";
 import CartButton from "../components/CartButton";
 import Categories from "../components/Categories";
 import Footer from "../components/Footer";
@@ -12,8 +12,14 @@ export default function Home() {
 			<VStack spacing={8}>
 				<Header />
 				<Divider />
-				<Searchbar />
-				<Categories />
+				<Stack
+					direction={{ md: "row-reverse", base: "column" }}
+					w="full"
+					justifyContent="flex-end"
+					spacing={4}>
+					<Searchbar />
+					<Categories />
+				</Stack>
 				<Divider />
 				<ProductsList />
 				<CartButton />

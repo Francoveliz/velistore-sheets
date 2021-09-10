@@ -19,7 +19,7 @@ const Header = () => {
 		<VStack spacing={0}>
 			<Box
 				mx={{ base: -4, md: 0 }}
-				h={32}
+				h={{ base: 32, md: 60 }}
 				overflow="hidden"
 				borderBottomRadius={{ base: "", md: "lg" }}>
 				<Image
@@ -28,17 +28,19 @@ const Header = () => {
 				/>
 			</Box>
 			<Grid
-				templateColumns={{ md: "repeat(3, 1fr)", base: "repeat(2,1fr)" }}
+				w="full"
+				templateColumns={{ md: "auto 1fr auto", base: "repeat(2,1fr)" }}
 				templateRows={{ md: "1fr", base: "6rem 1fr" }}>
 				<GridItem>
 					<Box
-						w={28}
-						h={28}
+						w={{ base: 28, md: 36 }}
+						h={{ base: 28, md: 36 }}
 						borderRadius="full"
 						boxShadow="md"
 						display="flex"
 						backgroundColor="white"
 						overflow="hidden"
+						ml={{ base: 0, md: 4 }}
 						justifyContent="center"
 						transform="translateY(-30%)"
 						justifyItems="center">
@@ -76,9 +78,16 @@ const Header = () => {
 						/>
 					</HStack>
 				</GridItem>
-				<GridItem colSpan={{ base: 2, md: 1 }} colStart={{ md: 2 }}>
+				<GridItem
+					ml={{ base: 0, md: 4 }}
+					pt={{ base: 0, md: 4 }}
+					colSpan={{ base: 2, md: 1 }}
+					colStart={{ md: 2 }}>
 					<Box>
-						<Text fontSize="2xl" fontWeight="bold">
+						<Text
+							fontSize={{ base: "2xl", md: "4xl" }}
+							lineHeight={1}
+							fontWeight="bold">
 							Grido
 						</Text>
 						<Text mb={4}>

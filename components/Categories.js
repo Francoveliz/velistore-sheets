@@ -24,7 +24,9 @@ const Categories = ({ ...rest }) => {
 	return (
 		<Select
 			{...rest}
+			cursor="pointer"
 			placeholder="Categorias..."
+			w={{ base: "full", md: 60 }}
 			value={value}
 			onChange={e => handleOnChange(e)}>
 			{categories.map(category => (

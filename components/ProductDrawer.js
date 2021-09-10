@@ -61,7 +61,7 @@ const ProductDrawer = ({
 	return (
 		<div>
 			<Drawer
-				size="lg"
+				size="sm"
 				isOpen={isOpen}
 				placement="right"
 				onClose={onClose}

@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 import { getProducts } from "../utils/getProducts";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/slices/dataSlice";
+import Products404 from "./Products404";
 
 const ProductsList = () => {
 	const dispatch = useDispatch();
@@ -29,13 +30,15 @@ const ProductsList = () => {
 	}, []);
 
 	return (
-		<div>
-			<SimpleGrid columns={{ base: 1, lg: 2 }}>
-				{filterProducts.map(product => (
-					<ProductCard key={product.id} {...product} />
-				))}
+		<>
+			<SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ md: 8 }}>
+				{Boolean(filterProducts.length) &&
+					filterProducts.map(product => (
+						<ProductCard key={product.id} {...product} />
+					))}
 			</SimpleGrid>
-		</div>
+			{!Boolean(filterProducts.length) && <Products404 />}
+		</>
 	);
 };
 

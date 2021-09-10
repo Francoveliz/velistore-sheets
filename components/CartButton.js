@@ -28,6 +28,7 @@ const CartButton = () => {
 			{Boolean(productsInCart.length) && (
 				<>
 					<Box
+						cursor="pointer"
 						position="sticky"
 						bottom="1rem"
 						left="50%"

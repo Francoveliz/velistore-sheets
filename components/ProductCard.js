@@ -14,14 +14,17 @@ const ProductCard = ({ imagen, titulo, precio, descripcion, id }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
 	return (
-		<>
+		<Box
+			boxShadow={{ base: "", md: "md" }}
+			p={{ base: 0, md: 4 }}
+			cursor="pointer">
 			<Stack
 				ref={btnRef}
 				onClick={onOpen}
 				direction="row"
 				alignItems="start"
 				p={4}
-				borderBottom="1px"
+				borderBottom={{ base: "1px", md: 0 }}
 				borderColor="gray.200"
 				mx={-4}>
 				<Box
@@ -59,7 +62,7 @@ const ProductCard = ({ imagen, titulo, precio, descripcion, id }) => {
 				precio={precio}
 				id={id}
 			/>
-		</>
+		</Box>
 	);
 };
 
