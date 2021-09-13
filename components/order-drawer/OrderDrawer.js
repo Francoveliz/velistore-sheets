@@ -25,7 +25,6 @@ import { selectProductsInCart } from "../../redux/slices/cartSlice";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { validationSchema } from "./validationSchema";
 import { BiErrorCircle } from "react-icons/bi";
-import { primaryColor } from "../../utils/enviromentVariables";
 
 const OrderDrawer = ({ setStep }) => {
 	const productsInCart = useSelector(selectProductsInCart);
@@ -129,7 +128,7 @@ const OrderDrawer = ({ setStep }) => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									size="lg"
-									colorScheme={primaryColor}
+									colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 									value="efectivo">
 									Efectivo
 								</Radio>
@@ -138,7 +137,7 @@ const OrderDrawer = ({ setStep }) => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									size="lg"
-									colorScheme={primaryColor}
+									colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 									value="transferencia bancaria">
 									Transferencia bancaria
 								</Radio>
@@ -147,7 +146,7 @@ const OrderDrawer = ({ setStep }) => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									size="lg"
-									colorScheme={primaryColor}
+									colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 									value="mercado pago">
 									Mercado pago
 								</Radio>
@@ -176,7 +175,7 @@ const OrderDrawer = ({ setStep }) => {
 					<Button
 						leftIcon={<AiOutlineWhatsApp fontSize="1.5rem" />}
 						onClick={formik.handleSubmit}
-						colorScheme={primaryColor}
+						colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 						isFullWidth>
 						Enviar a Whatsapp
 					</Button>

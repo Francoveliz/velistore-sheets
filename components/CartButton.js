@@ -4,7 +4,6 @@ import CartDrawer from "./CartDrawer";
 import { useSelector } from "react-redux";
 import { selectProductsInCart } from "../redux/slices/cartSlice";
 import { FiShoppingCart } from "react-icons/fi";
-import { primaryColor } from "../utils/enviromentVariables";
 
 const CartButton = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -38,7 +37,7 @@ const CartButton = () => {
 						transform="translateX(-50%)"
 						h={14}
 						w={14}
-						bg={primaryColor}
+						bg={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 						display="flex"
 						justifyContent="center"
 						boxShadow="lg"
@@ -58,7 +57,9 @@ const CartButton = () => {
 							justifyContent="center"
 							alignItems="center"
 							boxShadow="md"
-							colorScheme={primaryColor}>{`${totalQuantity}`}</Badge>
+							colorScheme={
+								process.env.NEXT_PUBLIC_PRIMARY_COLOR
+							}>{`${totalQuantity}`}</Badge>
 					</Box>
 
 					{/* {`Tu pedido ${totalQuantity} items $${totalAmount()}`} */}

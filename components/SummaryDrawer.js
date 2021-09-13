@@ -13,7 +13,6 @@ import {
 import CartItem from "./CartItem";
 import { selectProductsInCart } from "../redux/slices/cartSlice";
 import { useSelector } from "react-redux";
-import { primaryColor } from "../utils/enviromentVariables";
 
 const SummaryDrawer = ({ setStep }) => {
 	const productsInCart = useSelector(selectProductsInCart);
@@ -51,7 +50,7 @@ const SummaryDrawer = ({ setStep }) => {
 					</HStack>
 					<Button
 						onClick={() => setStep("form")}
-						colorScheme={primaryColor}
+						colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 						isFullWidth>
 						Siguiente
 					</Button>

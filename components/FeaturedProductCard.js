@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { VStack, Box, Image, Text, useDisclosure } from "@chakra-ui/react";
-import { primaryColor } from "../utils/enviromentVariables";
 import ProductDrawer from "./ProductDrawer";
 
 const FeaturedProductCard = ({
@@ -36,7 +35,7 @@ const FeaturedProductCard = ({
 						{titulo}
 					</Text>
 					<Text
-						color={primaryColor}
+						color={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 						fontWeight="semibold">{`$${precio}`}</Text>
 				</VStack>
 			</VStack>

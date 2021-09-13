@@ -10,10 +10,8 @@ import {
 	Icon,
 	GridItem,
 } from "@chakra-ui/react";
-
 import { FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
-import { primaryColor } from "../utils/enviromentVariables";
 
 const Header = ({ ...rest }) => {
 	return (
@@ -57,7 +55,7 @@ const Header = ({ ...rest }) => {
 				<GridItem colStart={{ md: 3 }} rowStart={{ md: 1 }}>
 					<HStack justifyContent="flex-end" pt={4}>
 						<IconButton
-							colorScheme={primaryColor}
+							colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 							aria-label="whatsapp"
 							icon={<FaWhatsapp />}
 							isRound
@@ -71,7 +69,7 @@ const Header = ({ ...rest }) => {
 							fontSize="1.2rem"
 						/>
 						<IconButton
-							colorScheme={primaryColor}
+							colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 							aria-label="instagram"
 							icon={<FaFacebookF />}
 							isRound
@@ -95,7 +93,7 @@ const Header = ({ ...rest }) => {
 							Aquí puedes colocar la descripción de tu comercio.
 						</Text>
 						<Text
-							color={primaryColor}
+							color={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 							fontWeight="semibold"
 							display="flex">
 							<Icon as={GoLocation} fontSize="1.3rem" mr={1} /> Av.

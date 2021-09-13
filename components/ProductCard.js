@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import ProductDrawer from "./ProductDrawer";
-import { primaryColor } from "../utils/enviromentVariables";
 
 const ProductCard = ({ imagen, titulo, precio, descripcion, id }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -48,7 +47,7 @@ const ProductCard = ({ imagen, titulo, precio, descripcion, id }) => {
 						mt="auto"
 						mb={0}
 						fontWeight="semibold"
-						color={primaryColor}
+						color={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 						position="absolute"
 						left={4}
 						bottom={0}>{`$${precio}`}</Text>

@@ -1,14 +1,12 @@
 import { Container, Divider, VStack, Stack, Text } from "@chakra-ui/react";
 import CartButton from "../components/CartButton";
 import Categories from "../components/Categories";
-import FeaturedProductCard from "../components/FeaturedProductCard";
 import FeaturedSection from "../components/FeaturedSection";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ProductsList from "../components/ProductsList";
 import Searchbar from "../components/Searchbar";
 import SectionTitle from "../components/SectionTitle";
-import { primaryColor } from "../utils/enviromentVariables";
 
 export default function Home() {
 	return (

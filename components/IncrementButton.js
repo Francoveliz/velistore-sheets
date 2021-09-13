@@ -1,13 +1,12 @@
 import React from "react";
 import { IconButton } from "@chakra-ui/button";
 import { AiOutlinePlus } from "react-icons/ai";
-import { primaryColor } from "../utils/enviromentVariables";
 
 const IncrementButton = ({ onClick, ...rest }) => {
 	return (
 		<IconButton
 			{...rest}
-			colorScheme={primaryColor}
+			colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 			onClick={onClick}
 			isRound
 			size="sm"
