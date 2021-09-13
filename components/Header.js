@@ -64,7 +64,7 @@ const Header = ({ ...rest }) => {
 							fontSize="1.2rem"
 						/>
 						<IconButton
-							colorScheme={primaryColor}
+							colorScheme={process.env.NEXT_PUBLIC_PRIMARY_COLOR}
 							aria-label="instagram"
 							icon={<FaInstagram />}
 							isRound
