@@ -6,6 +6,6 @@ export const theme = extendTheme({
 		body: "Poppins",
 	},
 	colors: {
-		primary: "#f4f",
+		primary: "red",
 	},
 });

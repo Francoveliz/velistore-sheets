@@ -13,13 +13,14 @@ import {
 
 import { FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
+import { primaryColor } from "../utils/enviromentVariables";
 
-const Header = () => {
+const Header = ({ ...rest }) => {
 	return (
-		<VStack spacing={0}>
+		<VStack spacing={0} {...rest}>
 			<Box
 				mx={{ base: -4, md: 0 }}
-				h={{ base: 32, md: 60 }}
+				h={{ base: 32, md: 64 }}
 				overflow="hidden"
 				borderBottomRadius={{ base: "", md: "lg" }}>
 				<Image
@@ -56,21 +57,21 @@ const Header = () => {
 				<GridItem colStart={{ md: 3 }} rowStart={{ md: 1 }}>
 					<HStack justifyContent="flex-end" pt={4}>
 						<IconButton
-							colorScheme="orange"
+							colorScheme={primaryColor}
 							aria-label="whatsapp"
 							icon={<FaWhatsapp />}
 							isRound
 							fontSize="1.2rem"
 						/>
 						<IconButton
-							colorScheme="orange"
+							colorScheme={primaryColor}
 							aria-label="instagram"
 							icon={<FaInstagram />}
 							isRound
 							fontSize="1.2rem"
 						/>
 						<IconButton
-							colorScheme="orange"
+							colorScheme={primaryColor}
 							aria-label="instagram"
 							icon={<FaFacebookF />}
 							isRound
@@ -86,17 +87,22 @@ const Header = () => {
 					<Box>
 						<Text
 							fontSize={{ base: "2xl", md: "4xl" }}
-							lineHeight={1}
+							lineHeight={{ base: 1, md: 1.5 }}
 							fontWeight="bold">
 							Grido
 						</Text>
 						<Text mb={4}>
 							Aquí puedes colocar la descripción de tu comercio.
 						</Text>
-						<Text color="orange" fontWeight="semibold" display="flex">
+						<Text
+							color={primaryColor}
+							fontWeight="semibold"
+							display="flex">
 							<Icon as={GoLocation} fontSize="1.3rem" mr={1} /> Av.
-							Calchaquí 6435, B1888 Florencio Varela, Provincia de Buenos
-							Aires
+							{`${"Calchaquí 6435, B1888 Florencio Varela, Provincia de Buenos Aires".slice(
+								0,
+								35
+							)} ...`}
 						</Text>
 					</Box>
 				</GridItem>

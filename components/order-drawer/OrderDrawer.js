@@ -25,6 +25,7 @@ import { selectProductsInCart } from "../../redux/slices/cartSlice";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { validationSchema } from "./validationSchema";
 import { BiErrorCircle } from "react-icons/bi";
+import { primaryColor } from "../../utils/enviromentVariables";
 
 const OrderDrawer = ({ setStep }) => {
 	const productsInCart = useSelector(selectProductsInCart);
@@ -128,7 +129,7 @@ const OrderDrawer = ({ setStep }) => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									size="lg"
-									colorScheme="orange"
+									colorScheme={primaryColor}
 									value="efectivo">
 									Efectivo
 								</Radio>
@@ -137,7 +138,7 @@ const OrderDrawer = ({ setStep }) => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									size="lg"
-									colorScheme="orange"
+									colorScheme={primaryColor}
 									value="transferencia bancaria">
 									Transferencia bancaria
 								</Radio>
@@ -146,7 +147,7 @@ const OrderDrawer = ({ setStep }) => {
 									onChange={formik.handleChange}
 									onBlur={formik.handleBlur}
 									size="lg"
-									colorScheme="orange"
+									colorScheme={primaryColor}
 									value="mercado pago">
 									Mercado pago
 								</Radio>
@@ -175,7 +176,7 @@ const OrderDrawer = ({ setStep }) => {
 					<Button
 						leftIcon={<AiOutlineWhatsApp fontSize="1.5rem" />}
 						onClick={formik.handleSubmit}
-						colorScheme="green"
+						colorScheme={primaryColor}
 						isFullWidth>
 						Enviar a Whatsapp
 					</Button>

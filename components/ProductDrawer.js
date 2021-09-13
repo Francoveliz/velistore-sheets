@@ -5,16 +5,15 @@ import {
 	Drawer,
 	DrawerOverlay,
 	DrawerContent,
-	DrawerHeader,
 	DrawerBody,
 	HStack,
 	DrawerCloseButton,
 	DrawerFooter,
 	IconButton,
-	Box,
 	Button,
 	Input,
 	Stack,
+	Box,
 } from "@chakra-ui/react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import {
@@ -26,6 +25,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import IncrementButton from "./IncrementButton";
 import DecrementButton from "./DecrementButton";
+import { primaryColor } from "../utils/enviromentVariables";
 
 const ProductDrawer = ({
 	imagen,
@@ -96,7 +96,7 @@ const ProductDrawer = ({
 					<DrawerFooter>
 						<Button
 							onClick={handleAddProduct}
-							colorScheme="orange"
+							colorScheme={primaryColor}
 							isFullWidth>
 							{`Agregar ${quantity} ${
 								quantity === 1 ? "producto" : "productos"

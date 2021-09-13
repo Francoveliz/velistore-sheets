@@ -9,16 +9,19 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import ProductDrawer from "./ProductDrawer";
+import { primaryColor } from "../utils/enviromentVariables";
 
 const ProductCard = ({ imagen, titulo, precio, descripcion, id }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = React.useRef();
 	return (
 		<Box
-			boxShadow={{ base: "", md: "md" }}
+			borderRadius={{ base: 0, md: "md" }}
+			boxShadow={{ base: "", md: "lg" }}
 			p={{ base: 0, md: 4 }}
 			cursor="pointer">
 			<Stack
+				position="relative"
 				ref={btnRef}
 				onClick={onOpen}
 				direction="row"
@@ -35,13 +38,20 @@ const ProductCard = ({ imagen, titulo, precio, descripcion, id }) => {
 					spacing={0}
 					h="full"
 					ju>
-					<Text fontSize="sm" fontWeight="semibold">
+					<Text fontSize={{ base: "sm", md: "md" }} fontWeight="semibold">
 						{titulo}
 					</Text>
 					<Text fontSize="sm" mb={4}>
 						{`${descripcion.slice(0, 30)}...`}
 					</Text>
-					<Text mt="auto" mb={0}>{`$${precio}`}</Text>
+					<Text
+						mt="auto"
+						mb={0}
+						fontWeight="semibold"
+						color={primaryColor}
+						position="absolute"
+						left={4}
+						bottom={0}>{`$${precio}`}</Text>
 				</Box>
 				<Box
 					h={24}

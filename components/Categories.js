@@ -28,6 +28,7 @@ const Categories = ({ ...rest }) => {
 			placeholder="Categorias..."
 			w={{ base: "full", md: 60 }}
 			value={value}
+			boxShadow="md"
 			onChange={e => handleOnChange(e)}>
 			{categories.map(category => (
 				<option key={category} value={category}>

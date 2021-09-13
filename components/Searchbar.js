@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Box, Input, Icon, HStack } from "@chakra-ui/react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { setSearchText } from "../redux/slices/searchSlice";
-
+import { primaryColor } from "../utils/enviromentVariables";
 const Searchbar = ({ ...rest }) => {
 	const [text, setText] = useState("");
 	const searchInputRef = useRef();
@@ -17,9 +17,9 @@ const Searchbar = ({ ...rest }) => {
 	const handleInputFocus = () => searchInputRef.current.focus();
 
 	return (
-		<HStack {...rest} spacing={0} w="full">
+		<HStack {...rest} spacing={0} w="full" boxShadow="md">
 			<Box
-				bg="orange"
+				bg={primaryColor}
 				h={10}
 				w={12}
 				onClick={handleInputFocus}

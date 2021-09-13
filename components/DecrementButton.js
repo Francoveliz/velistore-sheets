@@ -1,12 +1,12 @@
 import React from "react";
 import { IconButton } from "@chakra-ui/button";
 import { AiOutlineMinus } from "react-icons/ai";
-
+import { primaryColor } from "../utils/enviromentVariables";
 const DecrementButton = ({ onClick, ...rest }) => {
 	return (
 		<IconButton
 			{...rest}
-			colorScheme="orange"
+			colorScheme={primaryColor}
 			onClick={onClick}
 			isRound
 			size="sm"

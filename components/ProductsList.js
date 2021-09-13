@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SimpleGrid } from "@chakra-ui/layout";
+import { SimpleGrid, Box } from "@chakra-ui/layout";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import { getProducts } from "../utils/getProducts";
@@ -30,7 +30,7 @@ const ProductsList = () => {
 	}, []);
 
 	return (
-		<>
+		<Box pb={12}>
 			<SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={{ md: 8 }}>
 				{Boolean(filterProducts.length) &&
 					filterProducts.map(product => (
@@ -38,7 +38,7 @@ const ProductsList = () => {
 					))}
 			</SimpleGrid>
 			{!Boolean(filterProducts.length) && <Products404 />}
-		</>
+		</Box>
 	);
 };
 

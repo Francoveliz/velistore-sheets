@@ -8,17 +8,12 @@ import {
 	Text,
 	HStack,
 	Button,
-	Input,
-	FormControl,
-	FormLabel,
-	RadioGroup,
-	Radio,
-	Divider,
 	Box,
 } from "@chakra-ui/react";
 import CartItem from "./CartItem";
 import { selectProductsInCart } from "../redux/slices/cartSlice";
 import { useSelector } from "react-redux";
+import { primaryColor } from "../utils/enviromentVariables";
 
 const SummaryDrawer = ({ setStep }) => {
 	const productsInCart = useSelector(selectProductsInCart);
@@ -56,7 +51,7 @@ const SummaryDrawer = ({ setStep }) => {
 					</HStack>
 					<Button
 						onClick={() => setStep("form")}
-						colorScheme="orange"
+						colorScheme={primaryColor}
 						isFullWidth>
 						Siguiente
 					</Button>
